@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './Comment';
+import PropTypes, { string } from 'prop-types';
 
 class CardContainer extends React.Component {
   constructor(props) {
@@ -20,15 +21,15 @@ class CardContainer extends React.Component {
     const likes = this.state.likes
     const {username, thumbnailUrl, timestamp, imageUrl} = this.props.user
     const comments = this.state.comments
-    let comment = comments.map( comment =>
-      <Comment comment={comment} key={comment.text} />
+    let comment = comments.map((comment, i) =>
+      <Comment comment={comment} key={i} />
       )
     
     return (
       <div>
         <h1><img src={thumbnailUrl} alt={username} />{username} </h1>
         <img src={imageUrl} alt={username} />
-        <i class="far fa-heart"></i><i class="far fa-comment"></i>
+        <i className="far fa-heart"></i><i className="far fa-comment"></i>
         {likes} likes 
         {comment}
         {timestamp}
@@ -36,6 +37,15 @@ class CardContainer extends React.Component {
       
     )
   }
+}
+
+
+CardContainer.propTypes = {
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: string.isRequired 
+    }).isRequired
+  )
 }
 
 export default CardContainer;

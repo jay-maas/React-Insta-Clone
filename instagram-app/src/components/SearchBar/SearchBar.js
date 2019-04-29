@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchForm from './SearchForm';
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -8,11 +9,12 @@ class SearchBar extends React.Component {
     render() {
         return(
             <div>
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
             <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="instagram" /></h1>
-            <i class="far fa-compass" ></i>
-            <i class="far fa-heart"></i>
-            <i class="far fa-user"></i>
+            <SearchForm />
+            <i className="far fa-compass" ></i>
+            <i className="far fa-heart"></i>
+            <i className="far fa-user"></i>
             </div>
         )
     }
