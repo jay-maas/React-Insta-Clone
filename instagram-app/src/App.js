@@ -2,6 +2,7 @@ import React from 'react';
 
 import dummyData from './dummy-data';
 import CardContainer from './components/PostContainer/CardContainer';
+import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <SearchBar />
         {usersData}
       </div>
     )

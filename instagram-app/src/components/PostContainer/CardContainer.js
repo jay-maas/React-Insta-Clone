@@ -1,30 +1,36 @@
 import React from 'react';
-import Comment from './Comment'
+import Comment from './Comment';
 
 class CardContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      comments: []
+      comments: [],
+      likes: []
     }
   }
 
   componentDidMount() {
     this.setState({
-      comments: this.props.user.comments
+      comments: this.props.user.comments,
+      likes: this.props.user.likes
     })
   }
   render() {
-    const {username, thumbnailUrl, likes, timestamp} = this.props.user
+    const likes = this.state.likes
+    const {username, thumbnailUrl, timestamp, imageUrl} = this.props.user
     const comments = this.state.comments
     let comment = comments.map( comment =>
       <Comment comment={comment} key={comment.text} />
       )
+    
     return (
       <div>
-        <img src={thumbnailUrl} alt={username} />
-        <h1>Name: {username} </h1>
-        {comment}{likes}
+        <h1><img src={thumbnailUrl} alt={username} />{username} </h1>
+        <img src={imageUrl} alt={username} />
+        <i class="far fa-heart"></i><i class="far fa-comment"></i>
+        {likes} likes 
+        {comment}
         {timestamp}
       </div>
       
