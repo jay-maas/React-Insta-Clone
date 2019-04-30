@@ -15,7 +15,14 @@ class SearchBar extends React.Component {
                 </div>
 
                 <div className="searchInput">
-                    <SearchForm />
+                <form onSubmit={this.props.onSubmit}>
+                    <input 
+                    className="search"
+                    type="search"
+                    ref="cards"
+                    placeholder="&#xf002; Search"
+                    />
+                </form >
                 </div >
                 <div className="searchButtons">
                     <i className="far fa-compass fa-lg" ></i>

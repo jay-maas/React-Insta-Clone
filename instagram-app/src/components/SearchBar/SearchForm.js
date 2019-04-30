@@ -1,21 +1,14 @@
-import React from '../../../node_modules/react';
+// import React from '../../../node_modules/react';
 
-class SearchForm extends React.Component {
-    render() {
-        return(
-            <div>
-            <form>
-                <input 
-                className="search"
-                type="search"
-                ref="cards"
-                placeholder="&#xf002; Search"
-                />
-            </form >
+// class SearchForm extends React.Component {
+//     render() {
+//         return(
+//             <div>
+            
 
-            </div>
-        )
-    }
-}
+//             </div>
+//         )
+//     }
+// }
 
-export default SearchForm;
+// export default SearchForm;
