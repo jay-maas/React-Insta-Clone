@@ -8,9 +8,10 @@ class Comment extends React.Component {
     render() {
         const {username, text} = this.props.comment
         return (
-        <div className="singleComment">
+        <div className="singleComment" >
             <h2>{username}</h2>
             <p>{text}</p>
+            <button onClick={this.props.onClick}  className="deleteComment" />
         </div>
         )
     }
