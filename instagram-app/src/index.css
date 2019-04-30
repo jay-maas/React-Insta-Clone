@@ -144,6 +144,7 @@ html {
   display: flex;
   flex-direction: row;
   margin: 1% 0;
+  align-items: baseline;
 }
 
 .singleComment p {

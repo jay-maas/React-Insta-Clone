@@ -1,5 +1,4 @@
 import React from '../../../node_modules/react';
-import SearchForm from './SearchForm';
 
 class SearchBar extends React.Component {
     constructor(props) {

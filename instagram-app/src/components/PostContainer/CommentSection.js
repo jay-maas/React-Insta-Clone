@@ -19,7 +19,7 @@ class CommentSection extends React.Component {
     }
 
     onSubmit = event => {
-        
+        event.preventDefault();
         this.setState({
             comments: [...this.state.comments].concat({
                 username: '',
@@ -28,14 +28,13 @@ class CommentSection extends React.Component {
             })
         })
         event.target.reset();
-        event.preventDefault();
     }
 
     likeClickHandler = () => {
-
+        const likeLogic = this.state.likes === this.props.user.likes 
         this.setState({
-            likes: this.state.likes + 1
-            })
+            likes: likeLogic ? this.state.likes + 1 : this.state.likes - 1
+        })
     }
 
     deleteCommentHandler = event => {
