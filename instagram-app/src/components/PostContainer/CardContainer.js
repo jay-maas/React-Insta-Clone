@@ -5,16 +5,6 @@ import PropTypes, { string, number, array } from '../../../node_modules/prop-typ
 class CardContainer extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      comments: []
-    }
-  }
-
-  componenentOnMount() {
-    this.setState({
-      comments: this.props.user.comments
-    })
   }
 
   render() {

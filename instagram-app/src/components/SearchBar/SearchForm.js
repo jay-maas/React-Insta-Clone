@@ -2,7 +2,6 @@ import React from '../../../node_modules/react';
 
 class SearchForm extends React.Component {
     render() {
-        const searchFill = <i class="fas fa-search"></i>
         return(
             <div>
             <form>

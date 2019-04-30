@@ -3,9 +3,6 @@ import React from '../../../node_modules/react';
 class Comment extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            comment: []
-        }
     }
     
     render() {

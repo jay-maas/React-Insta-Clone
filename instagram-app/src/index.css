@@ -148,6 +148,7 @@ html {
 
 .singleComment p {
   padding-left: 2%;
+  width: 100%;
 }
 
 .timeStamp {
