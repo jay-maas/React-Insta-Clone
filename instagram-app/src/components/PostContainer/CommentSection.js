@@ -24,7 +24,7 @@ class CommentSection extends React.Component {
             comments: [...this.state.comments].concat({
                 username: '',
                 text: event.target.querySelector('.newComment').value,
-                id: [Date.now()]
+                id: Date.now()
             })
         })
         event.target.reset();
@@ -38,7 +38,12 @@ class CommentSection extends React.Component {
     }
 
     deleteCommentHandler = event => {
-     console.log(event.target)
+     const id = event.target.id
+        const allComments = [...this.state.comments]
+        let savedComments = allComments.filter(deleteThisComment => id != deleteThisComment.id);
+        this.setState({
+            comments: savedComments
+        })
     }
 
     render() {
@@ -52,7 +57,7 @@ class CommentSection extends React.Component {
                 </div>
                 <p className="likes">{likes} likes</p>
                 <div>
-                    {comments && comments.map((comment, i) => <Comment onClick={this.deleteCommentHandler} key={i} comment={comment} />)}
+                    {comments && comments.map((comment, i) => <Comment key={i} comment={comment} onClick={this.deleteCommentHandler}/>)}
                 </div>
                 <h3 className="timeStamp">{timestamp}</h3>
                 <div className="newComment">
