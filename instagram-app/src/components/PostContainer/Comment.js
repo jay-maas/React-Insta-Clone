@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 
 class Comment extends React.Component {
     constructor(props) {
@@ -11,10 +11,10 @@ class Comment extends React.Component {
     render() {
         const {username, text} = this.props.comment
         return (
-            <div>
+        <div className="singleComment">
             <h2>{username}</h2>
             <p>{text}</p>
-      </div>
+        </div>
         )
     }
 }

@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from '../node_modules/react';
 import dummyData from './dummy-data';
 import CardContainer from './components/PostContainer/CardContainer';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -13,19 +12,18 @@ class App extends React.Component {
   }
 
   render() {
-    const userData = this.state.userData
-    let usersData = userData.map( user =>
-        <CardContainer user={user} key={user.username} />
-      )
-
     return (
       <div className="App">
-        <SearchBar />
-        {usersData}
+
+        <div className="searchContainer">
+          <SearchBar />
+        </div>
+        <div className="cardContainer">
+          <CardContainer user={this.state.userData} />
+        </div>
       </div>
     )
   }
 }
-
 
 export default App;

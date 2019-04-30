@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 
 class SearchForm extends React.Component {
     render() {
@@ -6,11 +6,11 @@ class SearchForm extends React.Component {
         return(
             <div>
             <form>
-                <i class="fas fa-search"></i>
                 <input 
+                className="search"
                 type="search"
                 ref="cards"
-                placeholder="Search"
+                placeholder="&#xf002; Search"
                 />
             </form >
 
