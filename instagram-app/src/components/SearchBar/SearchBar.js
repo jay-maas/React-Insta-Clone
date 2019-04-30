@@ -1,4 +1,5 @@
 import React from '../../../node_modules/react';
+import SearchForm from './SearchForm';
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -14,14 +15,7 @@ class SearchBar extends React.Component {
                 </div>
 
                 <div className="searchInput">
-                <form onSubmit={this.props.onSubmit}>
-                    <input 
-                    className="search"
-                    type="search"
-                    ref="cards"
-                    placeholder="&#xf002; Search"
-                    />
-                </form >
+                    <SearchForm />
                 </div >
                 <div className="searchButtons">
                     <i className="far fa-compass fa-lg" ></i>

@@ -7,34 +7,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData:[]
+      userData:dummyData
     }
   }
 
-  searchHandler = event => {
-    event.preventDefault();
-    console.log(this.state.userData)
-    this.setState({
-      userData: this.state.userData.filter(user => {
-        return user.username === event.target.querySelector('.search').value
-      })
-    })
-    console.log(this.state.userData)
-    event.target.reset();
-  }
-
-  componentDidMount() {
-    this.setState({
-      userData: dummyData
-    })
-  }
-  
   render() {
     return (
       <div className="App">
 
         <div className="searchContainer">
-          <SearchBar onSubmit={this.searchHandler} />
+          <SearchBar />
         </div>
         <div className="cardContainer">
           <CardContainer user={this.state.userData} />

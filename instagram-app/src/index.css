@@ -144,12 +144,10 @@ html {
   display: flex;
   flex-direction: row;
   margin: 1% 0;
-  align-items: baseline;
 }
 
 .singleComment p {
   padding-left: 2%;
-  width: 100%;
 }
 
 .timeStamp {
