@@ -11,7 +11,10 @@ class Comment extends React.Component {
         <div className="singleComment" >
             <h2>{username}</h2>
             <p>{text}</p>
-            <button onClick={this.props.onClick} id={id} />
+           <i 
+           onClick={this.props.onClick} 
+           id={id}
+           className="deleteCommentButton far fa-trash-alt" />
         </div>
         )
     }

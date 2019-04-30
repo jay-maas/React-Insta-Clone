@@ -30,11 +30,13 @@ class CommentSection extends React.Component {
         event.target.reset();
     }
 
-    likeClickHandler = () => {
+    likeClickHandler = event => {
         const likeLogic = this.state.likes === this.props.user.likes 
         this.setState({
             likes: likeLogic ? this.state.likes + 1 : this.state.likes - 1
         })
+        console.log(event.target)
+        event.target.classList.toggle('likedPost')
     }
 
     deleteCommentHandler = event => {
@@ -46,6 +48,12 @@ class CommentSection extends React.Component {
         })
     }
 
+    newCommentFocus = event => {
+        let postId = event.target.id
+        let postField = document.getElementById(`${postId} input`)
+        postField.focus();
+    }
+
     render() {
         const timestamp = this.props.user.timestamp
         const comments = this.state.comments
@@ -53,7 +61,7 @@ class CommentSection extends React.Component {
         return(
             <div className="commentSection">
                 <div className="postButtons">
-                    <i className="far fa-heart fa-lg" onClick={this.likeClickHandler}></i><i className="far fa-comment fa-lg"></i>
+                    <i className="far fa-heart fa-lg" onClick={this.likeClickHandler} id={timestamp}></i><i className="far fa-comment fa-lg"onClick={this.newCommentFocus} id={timestamp}></i>
                 </div>
                 <p className="likes">{likes} likes</p>
                 <div>
@@ -63,9 +71,10 @@ class CommentSection extends React.Component {
                 <div className="newComment">
                     <form onSubmit={this.onSubmit}>
                             <input
-                            className="newComment" 
+                            className="newComment input" 
                             type="text"
                             placeholder="Add a comment..."
+                            id={timestamp + " input"}
                             />
                     </form>
                 </div>

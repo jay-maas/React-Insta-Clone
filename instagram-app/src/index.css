@@ -175,3 +175,11 @@ input:focus {
 ::placeholder { 
   color:   lightgrey;
 }
+
+.deleteCommentButton:hover {
+  color: red;
+}
+
+.likedPost {
+  color: red;
+}
