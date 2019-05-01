@@ -197,3 +197,16 @@ input:focus {
 .singleComment:hover .deleteCommentButton {
   display: initial;
 }
+
+.logOutButton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 2.5% 2.5%;
+  color: lightgrey;
+}
+
+.logOutButton:hover {
+  color:rgb(0, 200, 255);
+  transform: scale(1.5);
+}

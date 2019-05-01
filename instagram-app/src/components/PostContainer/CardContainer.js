@@ -3,11 +3,6 @@ import CommentSection from './CommentSection';
 import PropTypes, { string, number, array } from '../../../node_modules/prop-types';
 
 class CardContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-
   render() {
   return (
     <>

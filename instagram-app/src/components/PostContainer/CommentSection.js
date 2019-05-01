@@ -19,10 +19,11 @@ class CommentSection extends React.Component {
     }
 
     onSubmit = event => {
+        const user = localStorage.getItem('user')
         event.preventDefault();
         this.setState({
             comments: [...this.state.comments].concat({
-                username: '',
+                username: `${user}`,
                 text: event.target.querySelector('.newComment').value,
                 id: Date.now()
             })
@@ -42,7 +43,9 @@ class CommentSection extends React.Component {
     deleteCommentHandler = event => {
      const id = event.target.id
         const allComments = [...this.state.comments]
-        let savedComments = allComments.filter(deleteThisComment => id != deleteThisComment.id);
+        console.log(allComments, id)
+        let savedComments = allComments.filter(deleteThisComment => id !== deleteThisComment.id.toString());
+        console.log(savedComments)
         this.setState({
             comments: savedComments
         })

@@ -55,7 +55,7 @@ class PostsPage extends React.Component {
         <div className="cardContainer">
           <CardContainer user={this.state.userData} />
         </div>
-        <button onClick={this.logOut}>Log Out</button>
+        <i onClick={this.logOut} className="fas fa-sign-out-alt fa-2x logOutButton"></i>
       </div>
     )
   }

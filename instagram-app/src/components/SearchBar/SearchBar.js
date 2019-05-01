@@ -1,10 +1,6 @@
 import React from '../../../node_modules/react';
 
 class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <div className="searchBar">
