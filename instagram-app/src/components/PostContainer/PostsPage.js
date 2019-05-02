@@ -62,15 +62,22 @@ onSubmit = (inputValue, id) => {
   }
 
   deleteCommentHandler = (eventId, userId) => {
-    console.log(eventId, userId)
     let allComments = this.state.userData.filter(user => user.id === userId)
-    console.log(allComments[0].comments)
     allComments[0].comments = allComments[0].comments.filter(comment => eventId != comment.id)
-    console.log(allComments[0].comments)
     this.setState({
         userData: this.state.userData.map(user => user.id === user ? allComments : user )
     })
    }
+
+   likeClickHandler = (eventId, userId, prevLikeCount) => {
+     let likeCount = this.state.userData.filter(user => user.id === userId)
+     const likeLogic = likeCount[0].likes === prevLikeCount
+     likeCount[0].likes = likeLogic ? likeCount[0].likes + 1 : likeCount[0].likes - 1
+     this.setState({
+       userData: this.state.userData.filter(user => userId === user.id ? likeCount[0].likes : user)
+     })
+     console.log(this.state.userData)
+  }
 
   render() {
     return (
@@ -80,7 +87,7 @@ onSubmit = (inputValue, id) => {
           <SearchBar onSubmit={this.searchHandler} />
         </div>
         <div className="cardContainer">
-          <CardContainer user={this.state.userData} onSubmit={this.onSubmit} deleteCommentHandler={this.deleteCommentHandler} />
+          <CardContainer user={this.state.userData} onSubmit={this.onSubmit} deleteCommentHandler={this.deleteCommentHandler} likeClickHandler={this.likeClickHandler} />
         </div>
         <i onClick={this.logOut} className="fas fa-sign-out-alt fa-2x logOutButton"></i>
       </div>

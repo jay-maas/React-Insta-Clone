@@ -3,9 +3,6 @@ import CommentSection from './CommentSection';
 import PropTypes, { string, number, array } from '../../../node_modules/prop-types';
 
 class CardContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
   return (
     <>
@@ -13,7 +10,7 @@ class CardContainer extends React.Component {
       <div className="cards" key={user.id}>
         <h1 className="postHead"><img className="userThumb"src={user.thumbnailUrl} alt={user.username} />{user.username} </h1>
         <img className="postImg"src={user.imageUrl} alt={user.username} />
-        <CommentSection user={user} onSubmit={this.props.onSubmit} deleteCommentHandler={this.props.deleteCommentHandler} />
+        <CommentSection user={user} onSubmit={this.props.onSubmit} deleteCommentHandler={this.props.deleteCommentHandler} likeClickHandler={this.props.likeClickHandler} />
         </div>
       ))}
     </>
