@@ -46,23 +46,6 @@ class PostsPage extends React.Component {
 }
 
 
-<<<<<<< Updated upstream
-//Change logic
-  onSubmit = event => {
-    // const user = localStorage.getItem('user')
-    event.preventDefault();
-    console.log(this.state)
-    // this.setState({
-    //     comments: [...this.state.userData.comments].concat({
-    //         username: `${user}`,
-    //         text: event.target.querySelector('.newComment').value,
-    //         id: Date.now()
-    //     })
-    // })
-    event.target.reset();
-  }
-  
-=======
 
 
 
@@ -101,7 +84,6 @@ onSubmit = (inputValue, id) => {
   // event.target.reset();
 }
 
->>>>>>> Stashed changes
   render() {
     return (
       <div className="PostsPage">
