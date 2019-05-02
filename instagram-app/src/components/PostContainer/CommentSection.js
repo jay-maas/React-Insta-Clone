@@ -68,7 +68,7 @@ class CommentSection extends React.Component {
                 </div>
                 <p className="likes">{likes} likes</p>
                 <div>
-                    {comments && comments.map((comment, i) => <Comment key={i} comment={comment} onClick={this.deleteCommentHandler}/>)}
+                    {comments && comments.map(comment => <Comment key={comment.id} comment={comment} onClick={this.deleteCommentHandler}/>)}
                 </div>
                 <h3 className="timeStamp">{timestamp}</h3>
                 <div className="newComment">
