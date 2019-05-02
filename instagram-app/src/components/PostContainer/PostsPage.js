@@ -43,11 +43,11 @@ class PostsPage extends React.Component {
     event.preventDefault();
     localStorage.clear();
     document.location.reload();
-}
+  }
 
-onSubmit = (inputValue, id) => {
+onSubmit = (inputValue,userId) => {
   let commentSubmit = this.state.userData.filter(user =>
-    user.id === id)
+    user.id === userId)
   const user = localStorage.getItem('user')
   commentSubmit[0].comments = [...commentSubmit[0].comments, 
     {
@@ -57,7 +57,7 @@ onSubmit = (inputValue, id) => {
     }
   ]
   this.setState({
-    userData: this.state.userData.map(user => user===user.id ? commentSubmit : user)
+    userData: this.state.userData.map(user => user === user.id ? commentSubmit : user)
     })
   }
 
@@ -69,12 +69,12 @@ onSubmit = (inputValue, id) => {
     })
    }
 
-   likeClickHandler = (eventId, userId, prevLikeCount) => {
+   likeClickHandler = (userId, prevLikeCount) => {
      let likeCount = this.state.userData.filter(user => user.id === userId)
      const likeLogic = likeCount[0].likes === prevLikeCount
      likeCount[0].likes = likeLogic ? likeCount[0].likes + 1 : likeCount[0].likes - 1
      this.setState({
-       userData: this.state.userData.filter(user => userId === user.id ? likeCount[0].likes : user)
+       userData: this.state.userData.filter(user => user === user.id ? likeCount[0].likes : user)
      })
      console.log(this.state.userData)
   }

@@ -37,17 +37,14 @@ class CommentSection extends React.Component {
     }
 
     like = event => {
-        const eventId = event.target.id
         const userId = this.props.user.id
         const prevLikeCount = this.state.likes
-        this.props.likeClickHandler(eventId, userId, prevLikeCount)
+        this.props.likeClickHandler(userId, prevLikeCount)
         event.target.classList.toggle('likedPost')
     }
 
     render() {
-        const timestamp = this.props.user.timestamp
-        const comments = this.props.user.comments
-        const likes = this.props.user.likes
+        const { timestamp, comments, likes } = this.props.user
         return(
             <div className="commentSection">
                 <div className="postButtons">
