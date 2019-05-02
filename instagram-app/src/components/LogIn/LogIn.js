@@ -1,4 +1,5 @@
 import React from 'react';
+import { LogInWrapper, Button , H1 , H3 } from '../Style/logInStyles';
 
 class LogIn extends React.Component {
     logIn = event => {
@@ -11,16 +12,16 @@ class LogIn extends React.Component {
     }
     render(){
         return(
-            <>
-                <h1>Log In</h1>
+            <LogInWrapper>
+                <H1>Log In to Instagram-Clone</H1>
                 <form>
-                    <h3>Enter your username</h3>
+                    <H3>Enter your username</H3>
                     <input className="logInUsername" type="text" />
-                    <h3>Enter your password</h3>
+                    <H3>Enter your password</H3>
                     <input className="logInPassword" type="text"/>
                 </form>
-                <button onClick={this.logIn}>Log In</button>
-            </>
+                <Button onClick={this.logIn}>Log In</Button>
+            </LogInWrapper>
         )
     }
 }
