@@ -18,18 +18,18 @@ class CommentSection extends React.Component {
         })
     }
 
-    onSubmit = event => {
-        const user = localStorage.getItem('user')
-        event.preventDefault();
-        this.setState({
-            comments: [...this.state.comments].concat({
-                username: `${user}`,
-                text: event.target.querySelector('.newComment').value,
-                id: Date.now()
-            })
-        })
-        event.target.reset();
-    }
+    // onSubmit = event => {
+    //     const user = localStorage.getItem('user')
+    //     event.preventDefault();
+    //     this.setState({
+    //         comments: [...this.state.comments].concat({
+    //             username: `${user}`,
+    //             text: event.target.querySelector('.newComment').value,
+    //             id: Date.now()
+    //         })
+    //     })
+    //     event.target.reset();
+    // }
 
     likeClickHandler = event => {
         const likeLogic = this.state.likes === this.props.user.likes 
@@ -72,7 +72,7 @@ class CommentSection extends React.Component {
                 </div>
                 <h3 className="timeStamp">{timestamp}</h3>
                 <div className="newComment">
-                    <form onSubmit={this.onSubmit}>
+                    <form onSubmit={this.props.onSubmit}>
                             <input
                             className="newComment input" 
                             type="text"
