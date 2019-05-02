@@ -65,6 +65,13 @@ class CommentSection extends React.Component {
         event.target.reset();
     }
 
+    delete = event => {
+        event.preventDefault();
+        const eventId = event.target.id
+        const userId = this.props.user.id
+        this.props.deleteCommentHandler(eventId, userId)
+    }
+
     render() {
         const timestamp = this.props.user.timestamp
         const comments = this.props.user.comments
@@ -76,7 +83,7 @@ class CommentSection extends React.Component {
                 </div>
                 <p className="likes">{likes} likes</p>
                 <div>
-                    {comments && comments.map(comment => <Comment key={comment.id} comment={comment} onClick={this.deleteCommentHandler}/>)}
+                    {comments && comments.map(comment => <Comment key={comment.id} comment={comment} onClick={this.delete}/>)}
                 </div>
                 <h3 className="timeStamp">{timestamp}</h3>
                 <div className="newComment">

@@ -61,14 +61,15 @@ onSubmit = (inputValue, id) => {
     })
   }
 
-  deleteCommentHandler = (id) => {
-       const allComments = this.state.userData.filter(user => user.id === id)
-       console.log(allComments, id)
-       let savedComments = allComments.filter(deleteThisComment => id !== deleteThisComment.id.toString());
-       console.log(savedComments)
-       this.setState({
-           userData: this.state.userData.map(user => user===user.id ? savedComments : user)
-       })
+  deleteCommentHandler = (eventId, userId) => {
+    console.log(eventId, userId)
+    let allComments = this.state.userData.filter(user => user.id === userId)
+    console.log(allComments[0].comments)
+    allComments[0].comments = allComments[0].comments.filter(comment => eventId != comment.id)
+    console.log(allComments[0].comments)
+    this.setState({
+        userData: this.state.userData.map(user => user.id === user ? allComments : user )
+    })
    }
 
   render() {
@@ -79,7 +80,7 @@ onSubmit = (inputValue, id) => {
           <SearchBar onSubmit={this.searchHandler} />
         </div>
         <div className="cardContainer">
-          <CardContainer user={this.state.userData} onSubmit={this.onSubmit} />
+          <CardContainer user={this.state.userData} onSubmit={this.onSubmit} deleteCommentHandler={this.deleteCommentHandler} />
         </div>
         <i onClick={this.logOut} className="fas fa-sign-out-alt fa-2x logOutButton"></i>
       </div>

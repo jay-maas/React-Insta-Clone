@@ -13,7 +13,7 @@ class CardContainer extends React.Component {
       <div className="cards" key={user.id}>
         <h1 className="postHead"><img className="userThumb"src={user.thumbnailUrl} alt={user.username} />{user.username} </h1>
         <img className="postImg"src={user.imageUrl} alt={user.username} />
-        <CommentSection user={user} onSubmit={this.props.onSubmit}/>
+        <CommentSection user={user} onSubmit={this.props.onSubmit} deleteCommentHandler={this.props.deleteCommentHandler} />
         </div>
       ))}
     </>
