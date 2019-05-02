@@ -45,44 +45,31 @@ class PostsPage extends React.Component {
     document.location.reload();
 }
 
-
-
-
-
 onSubmit = (inputValue, id) => {
-  console.log(inputValue, id)
-  this.state.userData.map(user => 
-    user.id === id ? this.setState({
-    [this.state.userData[0].comments] : user.comments.concat({
-                username: `${user}`,
-                text: inputValue,
-                id: Date.now()
-            })
-    }) : console.log('noMatch')
-    )
+  let commentSubmit = this.state.userData.filter(user =>
+    user.id === id)
+  const user = localStorage.getItem('user')
+  commentSubmit[0].comments = [...commentSubmit[0].comments, 
+    {
+  username: `${user}`,
+  text: `${inputValue}`,
+  id: Date.now()
+    }
+  ]
+  this.setState({
+    userData: this.state.userData.map(user => user===user.id ? commentSubmit : user)
+    })
+  }
 
-  // const test = parseInt(event.target.getAttribute('userid'))
-  // console.log(test)
-  // const user = localStorage.getItem('user')
-  // event.preventDefault();
-  // const test2 = this.state.userData.filter(user => test === user.id 
-  // )
-  // console.log(test2)
-  // const test3 = test2.concat({
-  //   username: `${user}`,
-  //   text: event.target.querySelector('.newComment').value,
-  //   id: Date.now()
-  // })
-  // console.log(test3)
-  // this.setState({
-  //     userData: test3.concat({
-  //         username: `${user}`,
-  //         text: event.target.querySelector('.newComment').value,
-  //         id: Date.now()
-  //     }))
-  // })
-  // event.target.reset();
-}
+  deleteCommentHandler = (id) => {
+       const allComments = this.state.userData.filter(user => user.id === id)
+       console.log(allComments, id)
+       let savedComments = allComments.filter(deleteThisComment => id !== deleteThisComment.id.toString());
+       console.log(savedComments)
+       this.setState({
+           userData: this.state.userData.map(user => user===user.id ? savedComments : user)
+       })
+   }
 
   render() {
     return (

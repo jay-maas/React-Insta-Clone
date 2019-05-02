@@ -40,16 +40,16 @@ class CommentSection extends React.Component {
         event.target.classList.toggle('likedPost')
     }
 
-    deleteCommentHandler = event => {
-     const id = event.target.id
-        const allComments = [...this.state.comments]
-        console.log(allComments, id)
-        let savedComments = allComments.filter(deleteThisComment => id !== deleteThisComment.id.toString());
-        console.log(savedComments)
-        this.setState({
-            comments: savedComments
-        })
-    }
+    // deleteCommentHandler = event => {
+    //  const id = event.target.id
+    //     const allComments = [...this.state.comments]
+    //     console.log(allComments, id)
+    //     let savedComments = allComments.filter(deleteThisComment => id !== deleteThisComment.id.toString());
+    //     console.log(savedComments)
+    //     this.setState({
+    //         comments: savedComments
+    //     })
+    // }
 
     newCommentFocus = event => {
         let postId = event.target.id
@@ -61,14 +61,13 @@ class CommentSection extends React.Component {
         event.preventDefault();
         const value = event.target.querySelector('.newComment').value.toString()
         const id = this.props.user.id
-        // console.log(value)
-        // console.log(this.props.user.id)
         this.props.onSubmit(value, id)
+        event.target.reset();
     }
 
     render() {
         const timestamp = this.props.user.timestamp
-        const comments = this.state.comments
+        const comments = this.props.user.comments
         const likes = this.state.likes
         return(
             <div className="commentSection">
@@ -81,13 +80,9 @@ class CommentSection extends React.Component {
                 </div>
                 <h3 className="timeStamp">{timestamp}</h3>
                 <div className="newComment">
-<<<<<<< Updated upstream
-                    <form onSubmit={this.props.onSubmit}>
-=======
                     <form     
                     userid={this.props.user.id}
                     onSubmit={this.submit}>
->>>>>>> Stashed changes
                             <input
                             className="newComment input" 
                             type="text"
