@@ -6,11 +6,11 @@ class CardContainer extends React.Component {
   render() {
   return (
     <>
-      {this.props.user.map ((user, i) => (
-      <div className="cards" key={i}>
+      {this.props.user.map ((user) => (
+      <div className="cards" key={user.id}>
         <h1 className="postHead"><img className="userThumb"src={user.thumbnailUrl} alt={user.username} />{user.username} </h1>
         <img className="postImg"src={user.imageUrl} alt={user.username} />
-        <CommentSection user={user} />
+        <CommentSection user={user} onSubmit={this.props.onSubmit} deleteCommentHandler={this.props.deleteCommentHandler} likeClickHandler={this.props.likeClickHandler} />
         </div>
       ))}
     </>

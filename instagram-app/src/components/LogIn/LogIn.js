@@ -3,13 +3,10 @@ import React from 'react';
 class LogIn extends React.Component {
     logIn = event => {
         event.preventDefault()
-        if(localStorage.getItem('user')) {
-        } else {
         const usernameInput = document.querySelector('.logInUsername').value
         localStorage.setItem('user', `${usernameInput}`)
         const passwordInput = document.querySelector('.logInPassword').value
         localStorage.setItem('password', `${passwordInput}`)
-        }
         document.location.reload();
     }
     render(){

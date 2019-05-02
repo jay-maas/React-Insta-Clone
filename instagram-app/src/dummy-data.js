@@ -1,6 +1,7 @@
 const dummyData = [
   {
     username: "philzcoffee",
+    id: 651651651,
     thumbnailUrl:
       "https://tk-assets.lambdaschool.com/ecd33d34-c124-4b75-92d2-e5c52c171ed8_11201517_887808411287357_1307163552_a.jpg",
 
@@ -29,6 +30,7 @@ const dummyData = [
   },
   {
     username: "fortnite",
+    id: 5161894189,
     thumbnailUrl:
       "https://tk-assets.lambdaschool.com/ce601fdf-7cb0-4098-83d3-1a1584a72513_30841289_342445456281079_112845064497004544_n.jpg",
     imageUrl:
@@ -65,6 +67,7 @@ const dummyData = [
   },
   {
     username: "playhearthstone",
+    id: 681984891,
     thumbnailUrl:
       "https://tk-assets.lambdaschool.com/c432f179-8bd7-4758-959d-d88a21f96bca_37105899_432228420518610_5035444036064772096_n.jpg",
     imageUrl:
