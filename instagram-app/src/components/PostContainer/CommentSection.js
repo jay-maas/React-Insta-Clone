@@ -57,6 +57,15 @@ class CommentSection extends React.Component {
         postField.focus();
     }
 
+    submit = event => {
+        event.preventDefault();
+        const value = event.target.querySelector('.newComment').value.toString()
+        const id = this.props.user.id
+        // console.log(value)
+        // console.log(this.props.user.id)
+        this.props.onSubmit(value, id)
+    }
+
     render() {
         const timestamp = this.props.user.timestamp
         const comments = this.state.comments
@@ -72,12 +81,19 @@ class CommentSection extends React.Component {
                 </div>
                 <h3 className="timeStamp">{timestamp}</h3>
                 <div className="newComment">
+<<<<<<< Updated upstream
                     <form onSubmit={this.props.onSubmit}>
+=======
+                    <form     
+                    userid={this.props.user.id}
+                    onSubmit={this.submit}>
+>>>>>>> Stashed changes
                             <input
                             className="newComment input" 
                             type="text"
                             placeholder="Add a comment..."
-                            id={timestamp + " input"}
+                            id={timestamp + " input"
+                            }
                             />
                     </form>
                 </div>
