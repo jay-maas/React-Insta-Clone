@@ -1,75 +1,6 @@
 html {
   background: rgb(252, 250, 250);
 }
-
-.PostsPage {
-  width: 100%;
-  display:flex;
-  justify-content: center;
-}
-.cardContainer {
-  margin-top: 12vh;
-}
-
-.searchContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  height: 11vh;
-  background: white;
-  border-bottom: 1px solid rgba(211, 211, 211, 0.387);
-}
-
-.searchBar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.fa-instagram {
-  padding: 0 8% 0 1%;
-  border-right: 1px solid grey;
-}
-
-.instagram {
-  height: 6vh;
-  padding-left: 5%;
-}
-
-.logos {
-  width: 100%;
-  display: flex;
-  align-content: center;
-  padding-left: 2%;
-}
-
-.searchInput {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.searchInput input {
-  width: 16vw;
-}
-
-.searchButtons {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 2%;
-  align-content: flex-end;
-}
-
-.searchButtons .far {
-  padding: 0 5%;
-}
-
 .search::-webkit-input-placeholder {
   display: inline-block;
   font-style: normal;
@@ -89,92 +20,6 @@ html {
   height: 4vh;
 }
 
-.cards {
-  width: 100%;
-  margin: 2% 0;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
-}
-
-.cards:hover {
-  box-shadow: 10px 10px 5px 0px rgba(25, 213, 255, 0.612);
-}
-
-.postHead {
-  margin: 0;
-  display: flex;
-  font-size: 3vh;
-  flex-direction: row;
-  align-items: center;
-  height: 10vh;
-  padding-left: 3%;
-}
-
-.userThumb {
-  height: 4vh;
-  border-radius: 100%;
-  padding-right: 2%;
-}
-
-.postImg {
-  width:100%;
-  height: auto;
-}
-
-.userThumb:hover {
-  filter: brightness(1.45) contrast(3) grayscale(0.17) hue-rotate(72deg) saturate(3) sepia(0.04) ;
-}
-.commentSection {
-  padding: 2%;
-}
-
-.postButtons {
-  margin-bottom: 2vh;
-}
-
-.postButtons .far:last-child {
-  padding-left: 4%;
-}
-
-
-.commentSection p {
-  margin: 0;
-}
-
-.commentSection h2 {
-  font-size: 2.8vh;
-  margin: 0;
-}
-
-.singleComment {
-  display: flex;
-  flex-direction: row;
-  margin: 1% 0;
-  align-items: baseline;
-}
-
-.singleComment p {
-  padding-left: 2%;
-  width: 100%;
-}
-
-.timeStamp {
-  font-size: 2vh;
-  color: lightgrey;
-  font-weight: 300;
-  border-bottom: 1px solid lightgrey;
-  padding-bottom: 2%;
-}
-
-.newComment {
-  border: none;
-  background: none;
-  width: 100%;
-  height: auto;
-  padding: 2% 0;
-}
-
 input:focus {
   outline: none;
 }
@@ -183,9 +28,6 @@ input:focus {
   color:   lightgrey;
 }
 
-.deleteCommentButton {
-  display: none;
-}
 .deleteCommentButton:hover {
   color: red;
 }

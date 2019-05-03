@@ -1,18 +1,13 @@
 import React from 'react';
 import Comment from './Comment';
+import { CommentWrapper, PostButtons , PostLikes, Timestamp, NewCommentForm } from '../Style/logInStyles';
 
 class CommentSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: []
+            isLiked: false
         }
-    }
-
-    componentDidMount() {
-        this.setState({
-            likes: this.props.user.likes
-        })
     }
 
     newCommentFocus = event => {
@@ -37,25 +32,28 @@ class CommentSection extends React.Component {
     }
 
     like = event => {
+        this.setState({
+            isLiked: !this.state.isLiked
+        })
         const userId = this.props.user.id
-        const prevLikeCount = this.state.likes
-        this.props.likeClickHandler(userId, prevLikeCount)
+        const isLiked = this.state.isLiked
+        this.props.likeClickHandler(userId, isLiked)
         event.target.classList.toggle('likedPost')
     }
 
     render() {
         const { timestamp, comments, likes } = this.props.user
         return(
-            <div className="commentSection">
-                <div className="postButtons">
+            <CommentWrapper>
+                <PostButtons>
                     <i className="far fa-heart fa-lg" onClick={this.like} userid={this.props.user.id} id={timestamp}></i><i className="far fa-comment fa-lg"onClick={this.newCommentFocus} id={timestamp}></i>
-                </div>
-                <p className="likes">{likes} likes</p>
-                <div>
+                </PostButtons>
+                <PostLikes>{likes} likes</PostLikes>
+                
                     {comments && comments.map(comment => <Comment key={comment.id} comment={comment} onClick={this.delete}/>)}
-                </div>
-                <h3 className="timeStamp">{timestamp}</h3>
-                <div className="newComment">
+                
+                <Timestamp>{timestamp}</Timestamp>
+                <NewCommentForm>
                     <form     
                     userid={this.props.user.id}
                     onSubmit={this.submit}>
@@ -67,8 +65,8 @@ class CommentSection extends React.Component {
                             }
                             />
                     </form>
-                </div>
-            </div>
+                </NewCommentForm>
+            </CommentWrapper>
         )
     }
 }

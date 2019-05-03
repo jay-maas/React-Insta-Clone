@@ -3,6 +3,7 @@ import dummyData from '../../dummy-data';
 import CardContainer from './CardContainer';
 import SearchBar from '../SearchBar/SearchBar';
 import Fuse from 'fuse.js';
+import { HeaderWrapper, PostsPageWrapper, CardContainerWrapper } from '../Style/logInStyles';
 
 class PostsPage extends React.Component {
   constructor(props) {
@@ -46,51 +47,47 @@ class PostsPage extends React.Component {
   }
 
 onSubmit = (inputValue,userId) => {
-  let commentSubmit = this.state.userData.filter(user =>
-    user.id === userId)
-  const user = localStorage.getItem('user')
-  commentSubmit[0].comments = [...commentSubmit[0].comments, 
+  const username = localStorage.getItem('user')
+  let commentSubmit = this.state.userData.map(user => user.id === userId ? {...user, comments: [...user.comments, 
     {
-  username: `${user}`,
-  text: `${inputValue}`,
-  id: Date.now()
+    username: `${username}`,
+    text: `${inputValue}`,
+    id: Date.now()
     }
-  ]
+  ]} : user )
   this.setState({
-    userData: this.state.userData.map(user => user === user.id ? commentSubmit : user)
+    userData: commentSubmit
     })
   }
 
   deleteCommentHandler = (eventId, userId) => {
-    let allComments = this.state.userData.filter(user => user.id === userId)
-    allComments[0].comments = allComments[0].comments.filter(comment => eventId != comment.id)
+    let allComments = this.state.userData.map(user => user.id === userId ? {...user, comments: user.comments.filter(comment => eventId != comment.id)} : user)
+    console.log(eventId)
+    console.log(allComments)
     this.setState({
-        userData: this.state.userData.map(user => user.id === user ? allComments : user )
+        userData: allComments
     })
    }
 
-   likeClickHandler = (userId, prevLikeCount) => {
-     let likeCount = this.state.userData.filter(user => user.id === userId)
-     const likeLogic = likeCount[0].likes === prevLikeCount
-     likeCount[0].likes = likeLogic ? likeCount[0].likes + 1 : likeCount[0].likes - 1
+   likeClickHandler = (userId, isLiked) => {
+     let posts = this.state.userData.map(user => user.id === userId ? isLiked ? {...user, likes: user.likes - 1} : {...user, likes: user.likes + 1} : user)
      this.setState({
-       userData: this.state.userData.filter(user => user === user.id ? likeCount[0].likes : user)
+       userData: posts
      })
-     console.log(this.state.userData)
-  }
+    }
 
   render() {
     return (
-      <div className="PostsPage">
+      <PostsPageWrapper>
 
-        <div className="searchContainer">
+        <HeaderWrapper>
           <SearchBar onSubmit={this.searchHandler} />
-        </div>
-        <div className="cardContainer">
+        </HeaderWrapper>
+        <CardContainerWrapper>
           <CardContainer user={this.state.userData} onSubmit={this.onSubmit} deleteCommentHandler={this.deleteCommentHandler} likeClickHandler={this.likeClickHandler} />
-        </div>
+        </CardContainerWrapper>
         <i onClick={this.logOut} className="fas fa-sign-out-alt fa-2x logOutButton"></i>
-      </div>
+      </PostsPageWrapper>
     )
   }
 }

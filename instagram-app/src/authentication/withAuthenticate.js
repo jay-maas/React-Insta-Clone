@@ -22,11 +22,3 @@ const withAuthenticate = NonAuthApp => AuthApp =>
   };
 
   export default withAuthenticate;
-
-
-
-//   if(localStorage.getItem('user')) {
-//     return <AuthApp />
-// }  else { 
-//     return <NonAuthApp /> 
-// }
